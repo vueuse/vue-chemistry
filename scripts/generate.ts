@@ -1,0 +1,84 @@
+import fs from 'fs-extra'
+
+async function generateMath() {
+  const ignorelist = [
+    'random',
+  ]
+
+  const lines = [
+    'import { reactify } from \'@vueuse/shared\'',
+    '',
+  ]
+
+  Object.getOwnPropertyNames(Math)
+    .filter(key => !ignorelist.includes(key))
+    .forEach((key) => {
+      const value = Math[key]
+      if (typeof value === 'function') {
+        lines.push('/*@__PURE__*/')
+        lines.push(`export const ${key} = reactify(Math.${key})`)
+      }
+    })
+
+  lines.push('')
+
+  await fs.writeFile('src/math/generated.ts', lines.join('\n'), 'utf-8')
+}
+
+async function generateString() {
+  const ignorelist: string[] = [
+    'constructor',
+  ]
+
+  const lines = [
+    'import { reactifyString } from \'../utils\'',
+    '',
+    'const __proto = String.prototype',
+    '',
+  ]
+
+  Object.getOwnPropertyNames(String.prototype)
+    .filter(key => !ignorelist.includes(key))
+    .forEach((key) => {
+      const value = String.prototype[key]
+      if (typeof value === 'function') {
+        lines.push('/*@__PURE__*/')
+        lines.push(`export const ${key} = reactifyString(__proto.${key})`)
+      }
+    })
+
+  lines.push('')
+
+  await fs.writeFile('src/string/generated.ts', lines.join('\n'), 'utf-8')
+}
+
+async function generateNumber() {
+  const ignorelist: string[] = [
+    'constructor',
+  ]
+
+  const lines = [
+    'import { reactifyNumber } from \'../utils\'',
+    '',
+    'const __proto = Number.prototype',
+    '',
+  ]
+
+  Object.getOwnPropertyNames(Number.prototype)
+    .filter(key => !ignorelist.includes(key))
+    .forEach((key) => {
+      const value = Number.prototype[key]
+      if (typeof value === 'function') {
+        lines.push('/*@__PURE__*/')
+        lines.push(`export const ${key} = reactifyNumber(__proto.${key})`)
+      }
+    })
+
+  lines.push('')
+
+  await fs.writeFile('src/number/generated.ts', lines.join('\n'), 'utf-8')
+}
+
+generateMath()
+generateString()
+generateNumber()
