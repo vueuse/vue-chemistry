@@ -28,8 +28,8 @@
       "require": "./cjs/boolean/index.js"
     },
     "./console": {
-      "import": "./esm/boolean/index.js",
-      "require": "./cjs/boolean/index.js"
+      "import": "./esm/console/index.js",
+      "require": "./cjs/console/index.js"
     }
   },
   "bugs": {
