@@ -1,30 +1,30 @@
 {
   "name": "@vueuse/reactified",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Reactive utility wrappers for Vue",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
     "./json": {
-      "import":"./dist/esm/json/index.js",
-      "require":"./dist/cjs/json/index.js"
+      "import": "./dist/esm/json/index.js",
+      "require": "./dist/cjs/json/index.js"
     },
     "./string": {
-      "import":"./dist/esm/string/index.js",
-      "require":"./dist/cjs/string/index.js"
+      "import": "./dist/esm/string/index.js",
+      "require": "./dist/cjs/string/index.js"
     },
     "./math": {
-      "import":"./dist/esm/math/index.js",
-      "require":"./dist/cjs/math/index.js"
+      "import": "./dist/esm/math/index.js",
+      "require": "./dist/cjs/math/index.js"
     },
     "./number": {
-      "import":"./dist/esm/number/index.js",
-      "require":"./dist/cjs/number/index.js"
+      "import": "./dist/esm/number/index.js",
+      "require": "./dist/cjs/number/index.js"
     },
     "./boolean": {
-      "import":"./dist/esm/boolean/index.js",
-      "require":"./dist/cjs/boolean/index.js"
+      "import": "./dist/esm/boolean/index.js",
+      "require": "./dist/cjs/boolean/index.js"
     }
   },
   "bugs": {
