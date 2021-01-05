@@ -1,6 +1,6 @@
 {
   "name": "@vueuse/reactified",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Reactive utility wrappers for Vue",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
