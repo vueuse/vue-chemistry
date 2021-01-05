@@ -41,9 +41,8 @@
     "url": "git+https://github.com/vueuse-reactified.git"
   },
   "scripts": {
-    "prepublishOnly": "npm run build",
     "build": "esno scripts/build.ts",
-    "release": "npx bumpp --commit --push --tag && npm -C dist publish --access public",
+    "release": "npx bumpp --commit --push --tag && npm run build && cd dist && npm publish --access public",
     "lint": "eslint \"**/*.ts\"",
     "test": "jest"
   },
