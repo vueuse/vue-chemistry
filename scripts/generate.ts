@@ -28,6 +28,7 @@ async function generateMath() {
 async function generateString() {
   const ignorelist: string[] = [
     'constructor',
+    'toString',
   ]
 
   const lines = [

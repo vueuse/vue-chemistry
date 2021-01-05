@@ -73,8 +73,6 @@ export const sup = reactifyString(__proto.sup)
 /*@__PURE__*/
 export const startsWith = reactifyString(__proto.startsWith)
 /*@__PURE__*/
-export const toString = reactifyString(__proto.toString)
-/*@__PURE__*/
 export const trim = reactifyString(__proto.trim)
 /*@__PURE__*/
 export const trimStart = reactifyString(__proto.trimStart)
