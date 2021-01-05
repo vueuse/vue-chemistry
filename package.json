@@ -7,24 +7,28 @@
   "sideEffects": false,
   "exports": {
     "./json": {
-      "import": "./dist/esm/json/index.js",
-      "require": "./dist/cjs/json/index.js"
+      "import": "./esm/json/index.js",
+      "require": "./cjs/json/index.js"
     },
     "./string": {
-      "import": "./dist/esm/string/index.js",
-      "require": "./dist/cjs/string/index.js"
+      "import": "./esm/string/index.js",
+      "require": "./cjs/string/index.js"
     },
     "./math": {
-      "import": "./dist/esm/math/index.js",
-      "require": "./dist/cjs/math/index.js"
+      "import": "./esm/math/index.js",
+      "require": "./cjs/math/index.js"
     },
     "./number": {
-      "import": "./dist/esm/number/index.js",
-      "require": "./dist/cjs/number/index.js"
+      "import": "./esm/number/index.js",
+      "require": "./cjs/number/index.js"
     },
     "./boolean": {
-      "import": "./dist/esm/boolean/index.js",
-      "require": "./dist/cjs/boolean/index.js"
+      "import": "./esm/boolean/index.js",
+      "require": "./cjs/boolean/index.js"
+    },
+    "./console": {
+      "import": "./esm/boolean/index.js",
+      "require": "./cjs/boolean/index.js"
     }
   },
   "bugs": {
@@ -38,13 +42,10 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "build": "esno scripts/build.ts",
-    "release": "npx bumpp --commit --push --tag && npm publish --access public",
+    "release": "npx bumpp --commit --push --tag && npm -C dist publish --access public",
     "lint": "eslint \"**/*.ts\"",
     "test": "jest"
   },
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "@vueuse/shared": "^4.0.3"
   },
