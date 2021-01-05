@@ -5,6 +5,7 @@
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
   "sideEffects": false,
+  "types": "./index.d.ts",
   "exports": {
     "./json": {
       "import": "./esm/json/index.js",
