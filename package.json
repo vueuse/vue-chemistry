@@ -47,7 +47,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@vueuse/shared": "^4.0.3"
+    "@vueuse/shared": "^4.0.3",
+    "vue-demi": "latest"
   },
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.4.3",

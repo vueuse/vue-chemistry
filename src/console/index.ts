@@ -1,16 +1,23 @@
-import { reactify } from '@vueuse/shared'
+import { unref, watchEffect } from 'vue-demi'
+import { unrefFn } from '../utils'
 
 /*@__PURE__*/
-export const log = reactify(console.log)
+export const log = unrefFn(console.log)
 /*@__PURE__*/
-export const warn = reactify(console.warn)
+export const warn = unrefFn(console.warn)
 /*@__PURE__*/
-export const dir = reactify(console.dir)
+export const dir = unrefFn(console.dir)
 /*@__PURE__*/
-export const table = reactify(console.table)
+export const table = unrefFn(console.table)
 /*@__PURE__*/
-export const debug = reactify(console.debug)
+export const debug = unrefFn(console.debug)
 /*@__PURE__*/
-export const info = reactify(console.info)
+export const info = unrefFn(console.info)
 /*@__PURE__*/
-export const error = reactify(console.error)
+export const error = unrefFn(console.error)
+
+export function track(...args: any[]) {
+  return watchEffect(() => {
+    console.log(...args.map(unref))
+  })
+}

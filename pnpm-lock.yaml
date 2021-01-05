@@ -1,5 +1,6 @@
 dependencies:
   '@vueuse/shared': 4.0.3_vue@3.0.5
+  vue-demi: 0.5.4_vue@3.0.5
 devDependencies:
   '@antfu/eslint-config-ts': 0.4.3_eslint@7.17.0+typescript@4.1.3
   '@types/fs-extra': 9.0.6
@@ -5238,3 +5239,4 @@ specifiers:
   ts-jest: ^26.4.4
   typescript: ^4.1.3
   vue: '3'
+  vue-demi: ^0.5.4
