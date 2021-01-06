@@ -15,5 +15,5 @@ export const isNaN = reactify(global.isNaN)
 /*@__PURE__*/
 export const isFinite = reactify(global.isFinite)
 
-export function inc(a: Ref<number>, v: number) { a.value += v }
-export function dec(a: Ref<number>, v: number) { a.value -= v }
+export function inc(a: Ref<number>, v = 1) { a.value += v }
+export function dec(a: Ref<number>, v = 1) { a.value -= v }
