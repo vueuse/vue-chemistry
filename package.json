@@ -1,11 +1,12 @@
 {
-  "name": "@vueuse/reactified",
-  "version": "0.0.7",
-  "description": "Reactive utility wrappers for Vue",
+  "name": "vue-chemistry",
+  "version": "0.0.1",
+  "description": "Reactive JavaScript utilities",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
   "sideEffects": false,
   "types": "./index.d.ts",
+  "funding": "https://github.com/sponsors/antfu",
   "exports": {
     "./json": {
       "import": "./esm/json/index.js",
@@ -33,12 +34,12 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/vueuse-reactified/issues"
+    "url": "https://github.com/vue-chemistry/issues"
   },
-  "homepage": "https://github.com/vueuse-reactified#readme",
+  "homepage": "https://github.com/vue-chemistry#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vueuse-reactified.git"
+    "url": "git+https://github.com/vue-chemistry.git"
   },
   "scripts": {
     "build": "esno scripts/build.ts",

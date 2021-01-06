@@ -1,4 +1,5 @@
 import { reactify } from '@vueuse/shared'
+import { Ref } from 'vue'
 
 export * from './generated'
 
@@ -13,3 +14,6 @@ export const isNaN = reactify(global.isNaN)
 
 /*@__PURE__*/
 export const isFinite = reactify(global.isFinite)
+
+export function inc(a: Ref<number>, v: number) { a.value += v }
+export function dec(a: Ref<number>, v: number) { a.value -= v }

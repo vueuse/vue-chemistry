@@ -1,33 +1,36 @@
-# @vueuse/reactified
+# ⚗️ Vue Chemistry
 
 **WIP**
 
-Reactive utility wrappers powered by [`reactify`](https://vueuse.js.org/?path=/story/utilities--reactify) in [`VueUse`](https://github.com/antfu/vueuse)
+The ~~science~~ that deals with the [properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#objects_and_properties), [composition](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), and structure of states, the transformations they undergo during [reactions](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity). A library providing reactive JavaScript utility wrappers which are powered by [`reactify`](https://vueuse.js.org/?path=/story/utilities--reactify) from [VueUse](https://github.com/antfu/vueuse).
 
 ## Install
 
 ```bash
-npm i @vueuse/reactified
+npm i vue-chemistry
 ```
 
 ## Usage
 
 ```js
-import { sqrt, pow, sum, sin, round } from '@vueuse/reactified/math'
-import { toString, toUpperCase } from '@vueuse/reactified/string'
-import { parseInt, parseFloat } from '@vueuse/reactified/number'
-import { stringify, parse } from '@vueuse/reactified/json'
-import { isFalsy } from '@vueuse/reactified/boolean'
-import { log } from '@vueuse/reactified/console'
+import { sqrt, pow, sum, sin, round } from 'vue-chemistry/math'
+import { toString, toLowerCase } from 'vue-chemistry/string'
+import { parseInt, parseFloat } from 'vue-chemistry/number'
+import { parse, stringify } from 'vue-chemistry/json'
+import { isFalsy } from 'vue-chemistry/boolean'
+import { log } from 'vue-chemistry/console'
 ```
 
 ## Example
 
 ```js
 import { ref } from 'vue'
-import { log } from '@vueuse/reactified/console'
-import { sqrt, pow, sum } from '@vueuse/reactified/math'
-import { stringify, parse } from '@vueuse/reactified/json'
+import { get } from 'vue-chemistry'
+import { dec } from 'vue-chemistry/number'
+import { log } from 'vue-chemistry/console'
+import { stringify, parse } from 'vue-chemistry/json'
+import { rs, toUpperCase } from 'vue-chemistry/string'
+import { sqrt, pow, sum, multiply } from 'vue-chemistry/math'
 
 // Math       _________
 //       c = √ a² + b²
@@ -51,4 +54,26 @@ log(str) // {"foo":"bar"}
 
 obj.value.no = 42
 log(str) // {"foo":"bar","no":42}
+
+// String
+//         rs - Reactive String
+const name = ref('oo')
+const message = rs`Hello ${toUpperCase(name)}!`
+log(message) // Hello FOO!
+set(name, 'Anthony')
+log(message) // Hello ANTHONY!
+
+// String 2
+//
+const x = ref(9)
+const y = ref(9)
+const z = ref(7)
+const equation = rs`${x} x ${y} + ${z} = ${sum(multiply(x, y),z)}`
+log(equation) //   9 x 9 + 7 = 88
+set(x, 98)
+dec(z)
+log(equation) //  98 x 9 + 6 = 888
+set(x, 987)
+dec(z)
+log(equation) // 987 x 9 + 5 = 8888
 ```
