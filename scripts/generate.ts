@@ -5,6 +5,10 @@ async function generateMath() {
     'random',
   ]
 
+  const rename = {
+    log: 'logE',
+  }
+
   const lines = [
     'import { reactify } from \'@vueuse/shared\'',
     '',
@@ -16,7 +20,7 @@ async function generateMath() {
       const value = Math[key]
       if (typeof value === 'function') {
         lines.push('/*@__PURE__*/')
-        lines.push(`export const ${key} = reactify(Math.${key})`)
+        lines.push(`export const ${rename[key] || key} = reactify(Math.${key})`)
       }
     })
 
@@ -27,8 +31,9 @@ async function generateMath() {
 
 async function generateString() {
   const ignorelist: string[] = [
-    'constructor',
     'toString',
+    'constructor',
+    'valueOf',
   ]
 
   const lines = [
@@ -55,7 +60,9 @@ async function generateString() {
 
 async function generateNumber() {
   const ignorelist: string[] = [
+    'toString',
     'constructor',
+    'valueOf',
   ]
 
   const lines = [

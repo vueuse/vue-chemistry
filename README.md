@@ -1,8 +1,91 @@
-# ⚗️ Vue Chemistry
+<p align="center">
+  <img src='./res/hero.png' alt="Vue Chemisty" width="500">
+</p>
 
-**WIP**
+> The ~~science~~ that deals with the [properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#objects_and_properties), [composition](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), and structure of states, the transformations they undergo during [reactions](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity).
 
-The ~~science~~ that deals with the [properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#objects_and_properties), [composition](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), and structure of states, the transformations they undergo during [reactions](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity). A library providing reactive JavaScript utilities, powered by [`reactify`](https://vueuse.js.org/?path=/story/utilities--reactify) from [VueUse](https://github.com/antfu/vueuse).
+Reactified JavaScript functions for Vue, powered by [`reactify`](https://vueuse.js.org/?path=/story/utilities--reactify) from [VueUse](https://github.com/antfu/vueuse).
+
+## Reactified? What?
+
+In JavaScript, for most of the time, you are dealing with procedural functions. Which means after the result calculation won't have relationships with its sources, for example
+
+```js
+function sum(x, y) {
+  return x + y
+}
+
+let a = 1
+let b = 2
+
+let c = sum(a, b) // c = a + b = 3
+
+a = 2
+
+console.log(c) // still 3, not 4
+```
+
+On the other hand, Spreadsheets like Microsoft Excel or Google Sheets, formulas are always up-to-update whenever their source changes.
+
+<video src="https://v3.vuejs.org/images/reactivity-spreadsheet.mp4" width="300"></video>
+
+[Vue's reactivity system](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity) is a way to approach the reactiveness in JavaScript. In the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), we are kinda mixing the procedural and reactivity together. But what if you want to have a complete reactive developing experience?
+
+**Introducing Vue Chemistry**, a set of reactified JavaScript functions letting you enjoy the pure reactiveness!
+
+Take the example above, we can have:
+
+```js
+import { set } from 'vue-chemistry'
+import { sum } from 'vue-chemistry/math'
+import { log } from 'vue-chemistry/console'
+
+const a = ref(1)
+const b = ref(2)
+
+let c = sum(a, b) // c = a + b = 3
+
+set(a, 2)
+
+log(c) // it's 4!
+```
+
+### Emmmm, but how it works?
+
+It's basicity converting the function's arguments to accept the `Ref` in Vue and wrapper the result with `computed`. This makes it automatically collects dependency sources and re-evaluate when the sources get changed. Also note that the `ComputedRef` is also a `Ref` so the operations are chainable!
+
+An example comparsion:
+
+```ts
+// procedural function
+function sum(x: number, y: number) {
+  return x + y
+}
+```
+
+```ts
+import { computed, unref, Ref, ComputedRef } from 'vue'
+
+// reactified function
+function sum(
+  x: number | Ref<number>,
+  y: number | Ref<number>
+): ComputedRef<number> {
+  return computed(() => unref(x) + unref(y))
+}
+```
+
+If you want to convert a normal function into a "reactified" one, you can use `reactify()` function.
+
+```ts
+import { reactify } from 'vue-chemisty'
+
+function sum(x: number, y: number) {
+  return x + y
+}
+
+const reactifedSum = reactify(sum)
+```
 
 ## Install
 
@@ -12,7 +95,10 @@ npm i vue-chemistry
 
 ## Usage
 
+Functions available in the following namespaces
+
 ```js
+// see the auto-completion for the full functions list
 import { sqrt, pow, sum, sin, round } from 'vue-chemistry/math'
 import { toString, toLowerCase } from 'vue-chemistry/string'
 import { parseInt, parseFloat } from 'vue-chemistry/number'
@@ -77,3 +163,7 @@ set(x, 987)
 dec(z)
 log(equation) // 987 x 9 + 5 = 8888
 ```
+
+## License
+
+MIT

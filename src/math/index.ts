@@ -3,7 +3,7 @@ import { reactify } from '@vueuse/shared'
 export * from './generated'
 
 /*@__PURE__*/
-export const invert = reactify((n: number) => -n)
+export const negative = reactify((n: number) => -n)
 
 /*@__PURE__*/
 export const sum = reactify((...numbers: number[]) => {

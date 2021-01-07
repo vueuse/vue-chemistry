@@ -90,5 +90,3 @@ export const toLocaleUpperCase = reactifyString(__proto.toLocaleUpperCase)
 export const toLowerCase = reactifyString(__proto.toLowerCase)
 /*@__PURE__*/
 export const toUpperCase = reactifyString(__proto.toUpperCase)
-/*@__PURE__*/
-export const valueOf = reactifyString(__proto.valueOf)

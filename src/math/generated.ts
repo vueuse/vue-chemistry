@@ -39,7 +39,7 @@ export const hypot = reactify(Math.hypot)
 /*@__PURE__*/
 export const imul = reactify(Math.imul)
 /*@__PURE__*/
-export const log = reactify(Math.log)
+export const logE = reactify(Math.log)
 /*@__PURE__*/
 export const log1p = reactify(Math.log1p)
 /*@__PURE__*/
