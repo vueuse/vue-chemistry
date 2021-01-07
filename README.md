@@ -1,5 +1,5 @@
 <p align="center">
-  <img src='./res/hero.png' alt="Vue Chemisty" width="500">
+  <img src='./res/hero.png' alt="Vue Chemisty" width="600">
 </p>
 
 > The ~~science~~ that deals with the [properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#objects_and_properties), [composition](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), and structure of states, the transformations they undergo during [reactions](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity).
@@ -25,9 +25,9 @@ a = 2
 console.log(c) // still 3, not 4
 ```
 
-On the other hand, Spreadsheets like Microsoft Excel or Google Sheets, formulas are always up-to-update whenever their source changes.
+On the other hand, in Spreadsheets apps like Microsoft Excel or Google Sheets, formulas are always up-to-update whenever their source changes.
 
-<video src="https://v3.vuejs.org/images/reactivity-spreadsheet.mp4" width="300"></video>
+<img src="./res/reactivity-spreadsheet.gif" width="300"></video>
 
 [Vue's reactivity system](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity) is a way to approach the reactiveness in JavaScript. In the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), we are kinda mixing the procedural and reactivity together. But what if you want to have a complete reactive developing experience?
 
@@ -50,11 +50,11 @@ set(a, 2)
 log(c) // it's 4!
 ```
 
-### Emmmm, but how it works?
+### Cool, but how it works?
 
-It's basicity converting the function's arguments to accept the `Ref` in Vue and wrapper the result with `computed`. This makes it automatically collects dependency sources and re-evaluate when the sources get changed. Also note that the `ComputedRef` is also a `Ref` so the operations are chainable!
+It's basicity converting the function's arguments to accept the `Ref` in Vue and wrapper the result with `computed`. This makes it automatically collects dependency sources and re-evaluate when the sources get changed. Note that the `ComputedRef` is also a `Ref` so the operations are chainable!
 
-An example comparsion:
+An example for comparsion:
 
 ```ts
 // procedural function
@@ -84,7 +84,7 @@ function sum(x: number, y: number) {
   return x + y
 }
 
-const reactifedSum = reactify(sum)
+const reactifiedSum = reactify(sum)
 ```
 
 ## Install
@@ -111,7 +111,7 @@ import { log } from 'vue-chemistry/console'
 
 ```js
 import { ref } from 'vue'
-import { get } from 'vue-chemistry'
+import { set } from 'vue-chemistry'
 import { dec } from 'vue-chemistry/number'
 import { log } from 'vue-chemistry/console'
 import { stringify, parse } from 'vue-chemistry/json'
@@ -125,8 +125,8 @@ const b = ref(4)
 const c = sqrt(sum(pow(a, 2), pow(b, 2)))
 log(c) // 5
 
-a.value = 5
-b.value = 12
+set(a, 5) // shorthand for a.value =5
+set(a, 12)
 log(c) // 13
 
 
@@ -163,6 +163,16 @@ set(x, 987)
 dec(z)
 log(equation) // 987 x 9 + 5 = 8888
 ```
+
+## Sponsors
+
+This project is part of my <a href='https://github.com/antfu-sponsors'>Sponsor Program</a>
+
+<p align="center">
+  <a href="https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg">
+    <img src='https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg'/>
+  </a>
+</p>
 
 ## License
 
