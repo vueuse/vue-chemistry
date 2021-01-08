@@ -8,7 +8,7 @@ Reactified JavaScript functions for Vue, powered by [`reactify`](https://vueuse.
 
 ## Reactified? What?
 
-In JavaScript, for most of the time, you are dealing with procedural functions. Which means after the result calculation won't have relationships with its sources, for example
+In JavaScript, for most of the time, you are dealing with **procedural** functions. Which means after the calculation/transformation, the result won't know relationships with its sources, for example
 
 ```js
 function sum(x, y) {
@@ -29,11 +29,11 @@ On the other hand, in Spreadsheets apps like Microsoft Excel or Google Sheets, f
 
 <img src="./res/reactivity-spreadsheet.gif" width="300"></video>
 
-[Vue's reactivity system](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity) is a way to approach the reactiveness in JavaScript. In the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), we are kinda mixing the procedural and reactivity together. But what if you want to have a complete reactive developing experience?
+[Vue's reactivity system](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity) is a way to approach the reactiveness in JavaScript. In the [Composition API](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), we are kinda mixing the procedural and reactivity together (which is good and flexible). But what it will be like to have a complete reactive developing experience?
 
 **Introducing Vue Chemistry**, a set of reactified JavaScript functions letting you enjoy the pure reactiveness!
 
-Take the example above, we can have:
+From the example above, now we can have:
 
 ```js
 import { set } from 'vue-chemistry'
@@ -45,14 +45,14 @@ const b = ref(2)
 
 let c = sum(a, b) // c = a + b = 3
 
-set(a, 2)
+set(a, 2) // shorthand for a.value = 2
 
 log(c) // it's 4!
 ```
 
-### Cool, but how it works?
+### Cool, but, but how is that possible?
 
-It's basicity converting the function's arguments to accept the `Ref` in Vue and wrapper the result with `computed`. This makes it automatically collects dependency sources and re-evaluate when the sources get changed. Note that the `ComputedRef` is also a `Ref` so the operations are chainable!
+We are basically making functions accepting [`Ref`](https://v3.vuejs.org/api/refs-api.html#refs) as their arguments and then wrapper their result with [`computed`](https://v3.vuejs.org/guide/reactivity-computed-watchers.html#computed-and-watch). This makes them automatically collect dependency sources and re-evaluate when the sources get changed. Note that the `ComputedRef` is also a `Ref` which means the operations are chainable!
 
 An example for comparsion:
 
@@ -75,7 +75,7 @@ function sum(
 }
 ```
 
-If you want to convert a normal function into a "reactified" one, you can use `reactify()` function.
+If you want to convert a normal function into a "reactified" one, you can use `reactify()` function. The source code can be found [here](https://github.com/antfu/vueuse/blob/master/packages/shared/reactify/index.ts) (deadly simple!).
 
 ```ts
 import { reactify } from 'vue-chemisty'
@@ -105,9 +105,16 @@ import { parseInt, parseFloat } from 'vue-chemistry/number'
 import { parse, stringify } from 'vue-chemistry/json'
 import { isFalsy } from 'vue-chemistry/boolean'
 import { log } from 'vue-chemistry/console'
+import { set } from 'vue-chemistry'
 ```
 
-## Example
+Or to have everything in one place:
+
+```js
+import { sqrt, parseInt, parse, log  } from 'vue-chemistry/all'
+```
+
+## Examples
 
 ```js
 import { ref } from 'vue'
