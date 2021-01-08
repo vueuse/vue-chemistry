@@ -1,6 +1,6 @@
 import { ref } from 'vue'
-import { multiply } from '../src/math'
-import { rs } from '../src/string'
+import { multiply, rs, is } from '../src/all'
+import { $expect } from './utils'
 
 describe('reactiveStr', () => {
   it('exported', () => {
@@ -8,10 +8,11 @@ describe('reactiveStr', () => {
     const b = ref(3)
     const c = rs`${a} x ${b} = ${multiply(a, b)}`
 
-    expect(c.value).toBe('2 x 3 = 6')
+    $expect(is(c, '2 x 3 = 6'))
 
     a.value = 8
     b.value = 5
-    expect(c.value).toBe('8 x 5 = 40')
+
+    $expect(is(c, '8 x 5 = 40'))
   })
 })

@@ -111,7 +111,7 @@ import { set } from 'vue-chemistry'
 Or to have everything in one place:
 
 ```js
-import { sqrt, parseInt, parse, log  } from 'vue-chemistry/all'
+import { sqrt, parseInt, parse, log } from 'vue-chemistry/all'
 ```
 
 ## Examples
@@ -128,8 +128,8 @@ const b = ref(4)
 const c = sqrt(sum(pow(a, 2), pow(b, 2)))
 log(c) // 5
 
-set(a, 5) // shorthand for a.value =5
-set(a, 12)
+set(a, 5) // shorthand for a.value = 5
+set(b, 12)
 log(c) // 13
 ```
 
@@ -156,7 +156,7 @@ import { rs, toUpperCase } from 'vue-chemistry/string'
 
 // String
 //         rs - Reactive String
-const name = ref('oo')
+const name = ref('foo')
 const message = rs`Hello ${toUpperCase(name)}!`
 log(message) // Hello FOO!
 set(name, 'Anthony')
@@ -190,14 +190,15 @@ import { set, is, ternary, rs, log } from 'vue-chemistry/all'
 // String 3
 //
 const mode = ref('light')
-const isDark = or(is(mode, 'dark'), is(mode, 'auto'))
-const text = rs`${ternary(isDark, 'Dark', 'Light')} mode`
 
-log(text) // Light mode
+const isDark = is(mode, 'dark')
+const icon = rs`mdi-${ternary(isDark, 'moon', 'sun')}`
+
+log(icon) // mdi-sun
 
 set(mode, 'dark')
 
-log(text) // Dark mode
+log(icon) // mdi-moon
 ```
 
 ## Sponsors
