@@ -1,1 +1,1 @@
-export { reactify, reactifyObject, get, set, MaybeRef } from '@vueuse/shared'
+export { reactify, reactifyObject, get, set, when, MaybeRef } from '@vueuse/shared'

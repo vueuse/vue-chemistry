@@ -117,13 +117,9 @@ import { sqrt, parseInt, parse, log  } from 'vue-chemistry/all'
 ## Examples
 
 ```js
-import { ref } from 'vue'
 import { set } from 'vue-chemistry'
-import { dec } from 'vue-chemistry/number'
 import { log } from 'vue-chemistry/console'
-import { stringify, parse } from 'vue-chemistry/json'
-import { rs, toUpperCase } from 'vue-chemistry/string'
-import { sqrt, pow, sum, multiply } from 'vue-chemistry/math'
+import { sqrt, pow, sum } from 'vue-chemistry/math'
 
 // Math       _________
 //       c = √ a² + b²
@@ -135,7 +131,11 @@ log(c) // 5
 set(a, 5) // shorthand for a.value =5
 set(a, 12)
 log(c) // 13
+```
 
+```ts
+import { stringify, parse } from 'vue-chemistry/json'
+import { log } from 'vue-chemistry/console'
 
 // JSON
 //
@@ -147,6 +147,12 @@ log(str) // {"foo":"bar"}
 
 obj.value.no = 42
 log(str) // {"foo":"bar","no":42}
+```
+
+```ts
+import { set } from 'vue-chemistry'
+import { log } from 'vue-chemistry/console'
+import { rs, toUpperCase } from 'vue-chemistry/string'
 
 // String
 //         rs - Reactive String
@@ -155,6 +161,13 @@ const message = rs`Hello ${toUpperCase(name)}!`
 log(message) // Hello FOO!
 set(name, 'Anthony')
 log(message) // Hello ANTHONY!
+```
+
+```ts
+import { set } from 'vue-chemistry'
+import { log } from 'vue-chemistry/console'
+import { rs } from 'vue-chemistry/string'
+import { dec, multiply } from 'vue-chemistry/match'
 
 // String 2
 //
@@ -169,6 +182,22 @@ log(equation) //  98 x 9 + 6 = 888
 set(x, 987)
 dec(z)
 log(equation) // 987 x 9 + 5 = 8888
+```
+
+```ts
+import { set, is, ternary, rs, log } from 'vue-chemistry/all'
+
+// String 3
+//
+const mode = ref('light')
+const isDark = or(is(mode, 'dark'), is(mode, 'auto'))
+const text = rs`${ternary(isDark, 'Dark', 'Light')} mode`
+
+log(text) // Light mode
+
+set(mode, 'dark')
+
+log(text) // Dark mode
 ```
 
 ## Sponsors
