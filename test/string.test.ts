@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref } from 'vue-demi'
 import { multiply, rs, is } from '../src/all'
 import { $expect } from './utils'
 

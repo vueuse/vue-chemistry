@@ -1,5 +1,5 @@
 import { reactify } from '@vueuse/shared'
-import { Ref } from 'vue'
+import { Ref } from 'vue-demi'
 
 export * from './generated'
 

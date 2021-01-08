@@ -1,6 +1,6 @@
 import { reactify, MaybeRef } from '@vueuse/shared'
 
-import { computed, ComputedRef, Ref, unref } from 'vue'
+import { computed, ComputedRef, Ref, unref } from 'vue-demi'
 
 /*@__PURE__*/
 export const toBoolean = reactify((a: any) => !!a)
