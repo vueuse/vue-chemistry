@@ -106,6 +106,9 @@ import { parse, stringify } from 'vue-chemistry/json'
 import { isFalsy } from 'vue-chemistry/boolean'
 import { log } from 'vue-chemistry/console'
 import { set } from 'vue-chemistry'
+// or
+import * as Math from 'vue-chemistry/math'
+Math.sin(a)
 ```
 
 Or to have everything in one place:
@@ -113,6 +116,7 @@ Or to have everything in one place:
 ```js
 import { sqrt, parseInt, parse, log } from 'vue-chemistry/all'
 ```
+
 
 ## Examples
 
