@@ -8,6 +8,10 @@
   "types": "./index.d.ts",
   "funding": "https://github.com/sponsors/antfu",
   "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js"
+    },
     "./json": {
       "import": "./esm/json/index.js",
       "require": "./cjs/json/index.js"
