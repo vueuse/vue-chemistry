@@ -1,5 +1,5 @@
 <p align="center">
-  <img src='./res/hero.png' alt="Vue Chemisty" width="600">
+  <img src='./res/hero.png' alt="Vue Chemistry" width="600">
 </p>
 
 > The ~~science~~ that deals with the [properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#objects_and_properties), [composition](https://v3.vuejs.org/guide/composition-api-introduction.html#why-composition-api), and structure of states, the transformations they undergo during [reactions](https://v3.vuejs.org/guide/reactivity.html#what-is-reactivity).
@@ -78,7 +78,7 @@ function sum(
 If you want to convert a normal function into a "reactified" one, you can use `reactify()` function. The source code can be found [here](https://github.com/antfu/vueuse/blob/master/packages/shared/reactify/index.ts) (deadly simple!).
 
 ```ts
-import { reactify } from 'vue-chemisty'
+import { reactify } from 'vue-chemistry'
 
 function sum(x: number, y: number) {
   return x + y
