@@ -36,7 +36,7 @@ On the other hand, in Spreadsheets apps like Microsoft Excel or Google Sheets, f
 From the example above, now we can have:
 
 ```js
-import { set } from 'vue-chemistry'
+import { set } from 'vue-chemistry/core'
 import { sum } from 'vue-chemistry/math'
 import { log } from 'vue-chemistry/console'
 
@@ -78,7 +78,7 @@ function sum(
 If you want to convert a normal function into a "reactified" one, you can use `reactify()` function. The source code can be found [here](https://github.com/antfu/vueuse/blob/master/packages/shared/reactify/index.ts) (deadly simple!).
 
 ```ts
-import { reactify } from 'vue-chemistry'
+import { reactify } from 'vue-chemistry/core'
 
 function sum(x: number, y: number) {
   return x + y
@@ -105,7 +105,7 @@ import { parseInt, parseFloat } from 'vue-chemistry/number'
 import { parse, stringify } from 'vue-chemistry/json'
 import { isFalsy } from 'vue-chemistry/boolean'
 import { log } from 'vue-chemistry/console'
-import { set } from 'vue-chemistry'
+import { set } from 'vue-chemistry/core'
 // or
 import * as Math from 'vue-chemistry/math'
 Math.sin(a)
@@ -114,14 +114,14 @@ Math.sin(a)
 Or to have everything in one place:
 
 ```js
-import { sqrt, parseInt, parse, log } from 'vue-chemistry/all'
+import { sqrt, parseInt, parse, log } from 'vue-chemistry'
 ```
 
 
 ## Examples
 
 ```js
-import { set } from 'vue-chemistry'
+import { set } from 'vue-chemistry/core'
 import { log } from 'vue-chemistry/console'
 import { sqrt, pow, sum } from 'vue-chemistry/math'
 
@@ -154,7 +154,7 @@ log(str) // {"foo":"bar","no":42}
 ```
 
 ```ts
-import { set } from 'vue-chemistry'
+import { set } from 'vue-chemistry/core'
 import { log } from 'vue-chemistry/console'
 import { rs, toUpperCase } from 'vue-chemistry/string'
 
@@ -168,7 +168,7 @@ log(message) // Hello ANTHONY!
 ```
 
 ```ts
-import { set } from 'vue-chemistry'
+import { set } from 'vue-chemistry/core'
 import { log } from 'vue-chemistry/console'
 import { rs } from 'vue-chemistry/string'
 import { dec, multiply } from 'vue-chemistry/match'
@@ -189,7 +189,7 @@ log(equation) // 987 x 9 + 5 = 8888
 ```
 
 ```ts
-import { set, is, ternary, rs, log } from 'vue-chemistry/all'
+import { set, is, ternary, rs, log } from 'vue-chemistry'
 
 // String 3
 //
