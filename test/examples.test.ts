@@ -1,5 +1,5 @@
 import { ref } from 'vue-demi'
-import { rs, is, ternary, set, dec, multiply, sum, toUpperCase, stringify, pow, sqrt } from '../src/all'
+import { rs, is, ternary, set, dec, multiply, sum, toUpperCase, stringify, pow, sqrt } from '../src'
 import { $expect } from './utils'
 
 describe('examples', () => {
