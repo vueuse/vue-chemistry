@@ -12,6 +12,10 @@
       "import": "./esm/index.js",
       "require": "./cjs/index.js"
     },
+    "./core": {
+      "import": "./esm/core.js",
+      "require": "./cjs/core.js"
+    },
     "./json": {
       "import": "./esm/json/index.js",
       "require": "./cjs/json/index.js"
@@ -35,10 +39,6 @@
     "./console": {
       "import": "./esm/console/index.js",
       "require": "./cjs/console/index.js"
-    },
-    "./all": {
-      "import": "./esm/all.js",
-      "require": "./cjs/all.js"
     }
   },
   "bugs": {

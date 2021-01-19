@@ -1,5 +1,5 @@
 import { ref } from 'vue-demi'
-import { multiply, rs, is } from '../src/all'
+import { multiply, rs, is } from '../src'
 import { $expect } from './utils'
 
 describe('reactiveStr', () => {
