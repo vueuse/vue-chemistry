@@ -4,16 +4,23 @@ import { Ref } from 'vue-demi'
 export * from './generated'
 
 /*@__PURE__*/
-export const parseFloat = reactify(global.parseFloat)
+const _parseFloat = reactify(parseFloat)
 
 /*@__PURE__*/
-export const parseInt = reactify(global.parseInt)
+const _parseInt = reactify(parseInt)
 
 /*@__PURE__*/
-export const isNaN = reactify(global.isNaN)
+const _isNaN = reactify(isNaN)
 
 /*@__PURE__*/
-export const isFinite = reactify(global.isFinite)
+const _isFinite = reactify(isFinite)
+
+export {
+  _parseFloat as parseFloat,
+  _parseInt as parseInt,
+  _isNaN as isNaN,
+  _isFinite as isFinite,
+}
 
 export function inc(a: Ref<number>, v = 1) { a.value += v }
 export function dec(a: Ref<number>, v = 1) { a.value -= v }
