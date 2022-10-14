@@ -29,15 +29,15 @@ export const subtract = reactify((a: number, b: number) => a - b)
 export const mod = reactify((a: number, b: number) => a % b)
 
 /*@__PURE__*/
-const gcd = (a: number, b: number): number => {
+const pureGcd = (a: number, b: number): number => {
   if (b === 0) return a
-  else return gcd(b, a % b)
+  else return pureGcd(b, a % b)
 }
 
 /*@__PURE__*/
-export const rgcd = reactify(gcd)
+export const gcd = reactify(pureGcd)
 
 /*@__PURE__*/
 export const lcm = (a: MaybeRef<number>, b: MaybeRef<number>) => {
-  return divide(multiply(a, b), rgcd(a, b))
+  return divide(multiply(a, b), gcd(a, b))
 }

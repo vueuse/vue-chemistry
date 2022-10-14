@@ -1,12 +1,12 @@
 import { ref } from 'vue-demi'
-import { is, set, mod, rgcd, lcm } from '../src'
+import { is, set, mod, gcd, lcm } from '../src'
 import { $expect } from './utils'
 
 describe('reactiveMath', () => {
   it('math', () => {
     const a = ref(9)
     const b = ref(15)
-    const c = rgcd(a, b)
+    const c = gcd(a, b)
     $expect(is(c, 3))
     $expect(is(a, 9))
 
