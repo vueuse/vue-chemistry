@@ -1,6 +1,6 @@
 {
   "name": "vue-chemistry",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "packageManager": "pnpm@7.13.0",
   "description": "Reactive JavaScript utilities",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
