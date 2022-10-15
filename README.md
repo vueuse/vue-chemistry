@@ -16,9 +16,9 @@ function sum(x, y) {
 }
 
 let a = 1
-let b = 2
+const b = 2
 
-let c = sum(a, b) // c = a + b = 3
+const c = sum(a, b) // c = a + b = 3
 
 a = 2
 
@@ -43,7 +43,7 @@ import { log } from 'vue-chemistry/console'
 const a = ref(1)
 const b = ref(2)
 
-let c = sum(a, b) // c = a + b = 3
+const c = sum(a, b) // c = a + b = 3
 
 set(a, 2) // shorthand for a.value = 2
 
@@ -64,7 +64,8 @@ function sum(x: number, y: number) {
 ```
 
 ```ts
-import { computed, unref, Ref, ComputedRef } from 'vue'
+import type { ComputedRef, Ref } from 'vue'
+import { computed, unref } from 'vue'
 
 // reactified function
 function sum(
@@ -99,9 +100,9 @@ Functions available in the following namespaces
 
 ```js
 // see the auto-completion for the full functions list
-import { sqrt, pow, sum, sin, round } from 'vue-chemistry/math'
-import { toString, toLowerCase } from 'vue-chemistry/string'
-import { parseInt, parseFloat } from 'vue-chemistry/number'
+import { pow, round, sin, sqrt, sum } from 'vue-chemistry/math'
+import { toLowerCase, toString } from 'vue-chemistry/string'
+import { parseFloat, parseInt } from 'vue-chemistry/number'
 import { parse, stringify } from 'vue-chemistry/json'
 import { isFalsy } from 'vue-chemistry/boolean'
 import { log } from 'vue-chemistry/console'
@@ -114,7 +115,7 @@ Math.sin(a)
 Or to have everything in one place:
 
 ```js
-import { sqrt, parseInt, parse, log } from 'vue-chemistry'
+import { log, parse, parseInt, sqrt } from 'vue-chemistry'
 ```
 
 
@@ -123,7 +124,7 @@ import { sqrt, parseInt, parse, log } from 'vue-chemistry'
 ```js
 import { set } from 'vue-chemistry/core'
 import { log } from 'vue-chemistry/console'
-import { sqrt, pow, sum } from 'vue-chemistry/math'
+import { pow, sqrt, sum } from 'vue-chemistry/math'
 
 // Math       _________
 //       c = √ a² + b²
@@ -138,12 +139,12 @@ log(c) // 13
 ```
 
 ```ts
-import { stringify, parse } from 'vue-chemistry/json'
+import { parse, stringify } from 'vue-chemistry/json'
 import { log } from 'vue-chemistry/console'
 
 // JSON
 //
-const obj = ref({ foo:'bar' })
+const obj = ref({ foo: 'bar' })
 const str = stringify(obj)
 const clone = parse(str)
 
@@ -178,7 +179,7 @@ import { dec, multiply } from 'vue-chemistry/match'
 const x = ref(9)
 const y = ref(9)
 const z = ref(7)
-const equation = rs`${x} x ${y} + ${z} = ${sum(multiply(x, y),z)}`
+const equation = rs`${x} x ${y} + ${z} = ${sum(multiply(x, y), z)}`
 log(equation) //   9 x 9 + 7 = 88
 set(x, 98)
 dec(z)
@@ -189,7 +190,7 @@ log(equation) // 987 x 9 + 5 = 8888
 ```
 
 ```ts
-import { set, is, ternary, rs, log } from 'vue-chemistry'
+import { is, log, rs, set, ternary } from 'vue-chemistry'
 
 // String 3
 //

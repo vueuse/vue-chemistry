@@ -1,17 +1,19 @@
-import { reactify, MaybeRef } from '@vueuse/shared'
+import type { MaybeRef } from '@vueuse/shared'
+import { reactify } from '@vueuse/shared'
 
-import { computed, ComputedRef, Ref, unref } from 'vue-demi'
+import type { ComputedRef, Ref } from 'vue-demi'
+import { computed, unref } from 'vue-demi'
 
-/*@__PURE__*/
+/* @__PURE__ */
 export const toBoolean = reactify((a: any) => !!a)
 
-/*@__PURE__*/
+/* @__PURE__ */
 export const not = reactify((a: any) => !a)
 
-/*@__PURE__*/
+/* @__PURE__ */
 export const isTruthy = toBoolean
 
-/*@__PURE__*/
+/* @__PURE__ */
 export const isFalsy = not
 
 /**

@@ -1,5 +1,6 @@
 import { ref } from 'vue-demi'
-import { is, set, negative, sum, multiply, divide, subtract, mod, gcd, lcm } from '../src'
+import { describe, it } from 'vitest'
+import { divide, gcd, is, lcm, mod, multiply, negative, set, subtract, sum } from '../src'
 import { $expect } from './utils'
 
 describe('reactiveMath', () => {

@@ -1,18 +1,18 @@
 import { reactify } from '@vueuse/shared'
-import { Ref } from 'vue-demi'
+import type { Ref } from 'vue-demi'
 
 export * from './generated'
 
-/*@__PURE__*/
+/* @__PURE__ */
 const _parseFloat = reactify(parseFloat)
 
-/*@__PURE__*/
+/* @__PURE__ */
 const _parseInt = reactify(parseInt)
 
-/*@__PURE__*/
+/* @__PURE__ */
 const _isNaN = reactify(isNaN)
 
-/*@__PURE__*/
+/* @__PURE__ */
 const _isFinite = reactify(isFinite)
 
 export {
