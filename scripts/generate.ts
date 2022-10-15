@@ -17,9 +17,11 @@ async function generateMath() {
   Object.getOwnPropertyNames(Math)
     .filter(key => !ignorelist.includes(key))
     .forEach((key) => {
+      // @ts-expect-error cast
       const value = Math[key]
       if (typeof value === 'function') {
         lines.push('/*@__PURE__*/')
+        // @ts-expect-error cast
         lines.push(`export const ${rename[key] || key} = reactify(Math.${key})`)
       }
     })
@@ -46,6 +48,7 @@ async function generateString() {
   Object.getOwnPropertyNames(String.prototype)
     .filter(key => !ignorelist.includes(key))
     .forEach((key) => {
+      // @ts-expect-error cast
       const value = String.prototype[key]
       if (typeof value === 'function') {
         lines.push('/*@__PURE__*/')
@@ -75,7 +78,8 @@ async function generateNumber() {
   Object.getOwnPropertyNames(Number.prototype)
     .filter(key => !ignorelist.includes(key))
     .forEach((key) => {
-      const value = Number.prototype[key]
+      // @ts-expect-error cast
+      const value = Number.prototype[KeyObject]
       if (typeof value === 'function') {
         lines.push('/*@__PURE__*/')
         lines.push(`export const ${key} = reactifyNumber(__proto.${key})`)

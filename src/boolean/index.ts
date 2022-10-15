@@ -20,6 +20,7 @@ export const isFalsy = not
  * Equal, "==". Use `is` for strictly equal.
  */
 export function eq<L, R = L>(a: MaybeRef<L>, b: MaybeRef<R>) {
+  // @ts-expect-error what?
   // eslint-disable-next-line eqeqeq
   return computed(() => unref(a) == unref(b))
 }
@@ -28,6 +29,7 @@ export function eq<L, R = L>(a: MaybeRef<L>, b: MaybeRef<R>) {
  * Strictly equal, "==="
  */
 export function is<L, R = L>(a: MaybeRef<L>, b: MaybeRef<R>) {
+  // @ts-expect-error what?
   return computed(() => unref(a) === unref(b))
 }
 
@@ -35,6 +37,7 @@ export function is<L, R = L>(a: MaybeRef<L>, b: MaybeRef<R>) {
  * Strictly not equal, "!=="
  */
 export function isNot<L, R = L>(a: MaybeRef<L>, b: MaybeRef<R>) {
+  // @ts-expect-error what?
   return computed(() => unref(a) !== unref(b))
 }
 
@@ -42,6 +45,7 @@ export function isNot<L, R = L>(a: MaybeRef<L>, b: MaybeRef<R>) {
  * Not equal, "!="
  */
 export function noEq<L, R = L>(a: MaybeRef<L>, b: MaybeRef<R>) {
+  // @ts-expect-error what?
   // eslint-disable-next-line eqeqeq
   return computed(() => unref(a) != unref(b))
 }
