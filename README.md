@@ -54,7 +54,7 @@ log(c) // it's 4 (2 + 2)!
 
 We are basically making functions accepting [`Ref`](https://v3.vuejs.org/api/refs-api.html#refs) as their arguments and then wrapper their result with [`computed`](https://v3.vuejs.org/guide/reactivity-computed-watchers.html#computed-and-watch). This makes them automatically collect dependency sources and re-evaluate when the sources get changed. Note that the `ComputedRef` is also a `Ref` which means the operations are chainable!
 
-An example for comparsion:
+An example for comparison:
 
 ```ts
 // procedural function
